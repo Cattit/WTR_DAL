@@ -1,18 +1,3 @@
-const  {Pool} = require('pg');
-
-const pool = new Pool({
-  user: 'user1',
-  host: 'localhost',
-  database: 'mydb',
-  password: 'user1',
-  port: 5432,
-})
-
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  pool.end()
-})
-
 // const { Pool, Client } = require('pg')
 
 // const pool = new Pool({
@@ -23,10 +8,10 @@ pool.query('SELECT NOW()', (err, res) => {
 //   port: 5432,
 // })
 
-// pool.query('SELECT NOW()', (err, res) => {
-//   console.log(err, res)
-//   pool.end()
-// })
+// // pool.query('SELECT NOW()', (err, res) => {
+// //   console.log(err, res)
+// //   pool.end()
+// // })
 
 // const client = new Client({
 //   user: 'user1',
@@ -37,7 +22,25 @@ pool.query('SELECT NOW()', (err, res) => {
 // })
 // client.connect()
 
-// client.query('SELECT NOW()', (err, res) => {
-//   console.log(err, res)
-//   client.end()
-// })
+// // client.query('SELECT NOW()', (err, res) => {
+// //   console.log(err, res)
+// //   client.end()
+// // })
+
+var pg = require('pg');
+var pool;
+var config = {
+  user: 'user1',
+  host: 'localhost',
+  database: 'mydb',
+  password: 'user1',
+  port: 5432, 
+};
+
+module.exports = {
+    getPool: function () {
+      if (pool) return pool; // if it is already there, grab it here
+      pool = new pg.Pool(config);
+      return pool;
+    }
+}

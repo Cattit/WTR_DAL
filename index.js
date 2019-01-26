@@ -14,6 +14,18 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
 
-app.listen(3000, function(){
-    console.log('Example app listening on port 3000!')
+app.listen(3001, function(){
+    console.log('Example app listening on port 3001!')
 })
+
+function saveMeteoData(dataForecast){ // ???
+  let data = require("./routes/yandex.js"); 
+  data.saveData(dataForecast);
+} 
+module.exports.saveMeteoData = saveMeteoData;
+
+function saveNowData(dataForecast){ 
+  let data = require("./routes/owm.js"); 
+  data.saveData(dataForecast);  
+}
+module.exports.saveNowData = saveNowData;
