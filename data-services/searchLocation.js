@@ -11,7 +11,7 @@ function getIdLocationByCoords(lat, lon) {
 module.exports.getIdLocationByCoords = getIdLocationByCoords;
 
 function getIdLocationByUrl(url) {
-    return db.query('SELECT id FROM "Location" WHERE url_gismeteo = $1 OR url_rp5 = $1', [url])
+    return db.query('SELECT id FROM "Location" WHERE url_gismeteo = $1', [url])
         .then(res => {
             // console.log(res.rows[0].id);
             return res.rows[0].id
@@ -20,3 +20,14 @@ function getIdLocationByUrl(url) {
 }
 
 module.exports.getIdLocationByUrl = getIdLocationByUrl;
+
+function getIdLocationByCode(code) {
+    return db.query('SELECT id FROM "Location" WHERE code_accuweather = $1', [code])
+        .then(res => {
+            // console.log(res.rows[0].id);
+            return res.rows[0].id
+        })
+        .catch(e => console.error(e.stack))
+}
+
+module.exports.getIdLocationByCode = getIdLocationByCode;

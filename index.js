@@ -7,6 +7,7 @@ const raiting = require("./raiting.js");
 // таблица городов
 module.exports.getIdLocationByCoords = async (lat, lon) => await searchLocation.getIdLocationByCoords(lat, lon);
 module.exports.getIdLocationByUrl = async (url) => await searchLocation.getIdLocationByUrl(url);
+module.exports.getIdLocationByCode = async (code) => await searchLocation.getIdLocationByCode(code);
 
 // таблица прогнозируемых данных
 /**
