@@ -31,16 +31,16 @@ var pg = require('pg');
 var pool;
 var config = {
   user: 'user1',
-  host: 'localhost',
+  host: '127.0.0.1',  //'localhost'
   database: 'mydb',
   password: 'user1',
-  port: 5432, 
+  port: 5432,
 };
 
 module.exports = {
-    getPool: function () {
-      if (pool) return pool; // if it is already there, grab it here
-      pool = new pg.Pool(config);
-      return pool;
-    }
+  getPool: function () {
+    if (pool) return pool; // if it is already there, grab it here
+    pool = new pg.Pool(config);
+    return pool;
+  }
 }
