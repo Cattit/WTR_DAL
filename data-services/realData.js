@@ -19,7 +19,7 @@ function search(date_start, date_end, id_location) {  // поиск прогно
 module.exports.search = search;
 
 module.exports.getweatherForHours = (id_location, date_start, date_end) => {  // поиск прогноза по id ячейки, id города, датам
-  return db.query('SELECT * FROM "ActualWeather" WHERE id_location = $1 AND date_start >= $2 AND date_end <= $3', [id_location, date_start, date_end])
+  return db.query('SELECT * FROM "ActualWeather" WHERE id_location = $1 AND date_start >= $2 AND date_start <= $3', [id_location, date_start, date_end])
     .then(res => {
       return res.rows
     })
