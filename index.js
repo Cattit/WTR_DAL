@@ -37,7 +37,8 @@ module.exports.getweatherForHours = async (id_location, date_start, date_end) =>
 module.exports.saveRaiting = async (id_source, mark, depth_forecast, date_start, id_location, date_end) => await raiting.saveRaiting(id_source, mark, depth_forecast, date_start, id_location, date_end);
 module.exports.getRaitingPeriod = async (id_source, depth_forecast, date, id_location, period) => await raiting.saveRaiting(id_source, depth_forecast, date, id_location, period);
 module.exports.getDepthSourceLocation = async () => await raiting.getDepthSourceLocation();
-module.exports.getRaitingAvgDaily = async (id_source, depth_forecast, date_start, id_location, date_end) => await raiting.getRaitingAvgdaily(id_source, depth_forecast, date_start, id_location, date_end);
+module.exports.getRaitingAvgDaily = async (id_source, depth_forecast, date_start, id_location, date_end) => await raiting.getRaitingAvgDaily(id_source, depth_forecast, date_start, id_location, date_end);
+module.exports.changeRaiting = async (id_source, mark, depth_forecast, date_start, id_location, date_end) => await raiting.changeRaiting(id_source, mark, depth_forecast, date_start, id_location, date_end);
 
 // таблица ресурсов (сайтов)
 module.exports.getUrlApi = async (id_source) => await source.getUrlApi(id_source);
