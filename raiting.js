@@ -33,7 +33,7 @@ module.exports.getDepthSourceLocation = () => {
 }
 
 module.exports.getRaitingAvgDaily = (id_source, depth_forecast, date_start, id_location, date_end) => {
-    return db.query('SELECT avg(mark) FROM "Raiting" WHERE id_location = $1 AND id_source = $2 AND depth_forecast = $3 AND date_start >= $4 AND date_start <= $5', [id_location, id_source, depth_forecast, date_start, date_end])
+    return db.query('SELECT avg(mark) FROM "Raiting" WHERE id_location = $1 AND id_source = $2 AND depth_forecast = $3 AND date_start >= $4 AND date_start <= $5 AND date_start = date_end', [id_location, id_source, depth_forecast, date_start, date_end])
         .then(res => {
             return res.rows[0].avg
         })
