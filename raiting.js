@@ -24,6 +24,14 @@ module.exports.getDepthSourceLocation = () => {
         .catch(e => console.error(e.stack))
 }
 
+module.exports.getDepthSourceLocName = () => {
+    return db.query('SELECT "Location".id AS id_location, "Location".name AS name_location, "Depth".id_source, "Source".name AS name_source, "Depth".depth FROM "Depth" CROSS JOIN "Location" LEFT JOIN "Source" ON "Source".id = "Depth".id_source ORDER BY "Location".name, "Depth".id_source, "Depth".depth')
+        .then(res => {
+            return res.rows
+        })
+        .catch(e => console.error(e.stack))
+}
+
 module.exports.getRaiting = (id_source, depth_forecast, date_start, id_location, date_end) => {
     return db.query('SELECT mark FROM "Raiting" WHERE id_location = $1 AND id_source = $2 AND depth_forecast = $3 AND date_start = $4 AND date_end = $5', [id_location, id_source, depth_forecast, date_start, date_end])
         .then(res => {

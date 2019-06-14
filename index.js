@@ -12,6 +12,7 @@ module.exports.getIdLocationByCode = async (code) => await location.getIdLocatio
 module.exports.getAllLocationCoordsId = async () => await location.getAllLocationCoordsId();
 module.exports.getAllLocationUrlId = async () => await location.getAllLocationUrlId();
 module.exports.getAllLocationCodeId = async () => await location.getAllLocationCodeId();
+module.exports.getAllLocationNameId = async () => await location.getAllLocationNameId();
 
 // таблица прогнозируемых данных
 /**
@@ -36,9 +37,13 @@ module.exports.getweatherForHours = async (id_location, date_start, date_end) =>
 // рейтинг
 module.exports.saveRaiting = async (id_source, mark, depth_forecast, date_start, id_location, date_end) => await raiting.saveRaiting(id_source, mark, depth_forecast, date_start, id_location, date_end);
 module.exports.getDepthSourceLocation = async () => await raiting.getDepthSourceLocation();
+module.exports.getDepthSourceLocName = async () => await raiting.getDepthSourceLocName();
 module.exports.getRaiting = async (id_source, depth_forecast, date_start, id_location, date_end) => await raiting.getRaiting(id_source, depth_forecast, date_start, id_location, date_end);
 module.exports.getRaitingAvgDaily = async (id_source, depth_forecast, date_start, id_location, date_end) => await raiting.getRaitingAvgDaily(id_source, depth_forecast, date_start, id_location, date_end);
 module.exports.changeRaiting = async (id_source, mark, depth_forecast, date_start, id_location, date_end) => await raiting.changeRaiting(id_source, mark, depth_forecast, date_start, id_location, date_end);
 
 // таблица ресурсов (сайтов)
 module.exports.getUrlApi = async (id_source) => await source.getUrlApi(id_source);
+
+// таблица глубин
+module.exports.getDepthSource = async () => await source.getDepthSource();

@@ -53,3 +53,12 @@ function getAllLocationCodeId() {
         .catch(e => console.error(e.stack))
 }
 module.exports.getAllLocationCodeId = getAllLocationCodeId;
+
+function getAllLocationNameId() {
+    return db.query('SELECT id, name FROM "Location" ORDER BY "Location".name')
+        .then(res => {
+            return res.rows
+        })
+        .catch(e => console.error(e.stack))
+}
+module.exports.getAllLocationNameId = getAllLocationNameId;
